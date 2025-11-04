@@ -2,10 +2,11 @@
 .vscode-test/**
 src/**
 .gitignore
-.yarnrc
 vsc-extension-quickstart.md
 **/tsconfig.json
 **/eslint.config.mjs
 **/*.map
 **/*.ts
 **/.vscode-test.*
+webview/node_modules
+assets/extension-usage.gif

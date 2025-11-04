@@ -38,7 +38,7 @@ This extension does not add any VS Code settings.
 
 ## Release Notes
 
-### 1.0.0
+### 0.0.1
 
 Initial release of VSCode Colour Display
 - Display all VSCode CSS color variables

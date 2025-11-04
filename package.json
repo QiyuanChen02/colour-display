@@ -2,13 +2,14 @@
   "name": "colour-display",
   "displayName": "colour-display",
   "description": "Displays all the colours of your VSCode theme",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.105.0"
   },
   "categories": [
     "Other"
   ],
+  "publisher": "qiyuanchen",
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
@@ -19,8 +20,12 @@
       }
     ]
   },
+  "icon": "icon.png",
   "scripts": {
-    "vscode:prepublish": "pnpm run compile",
+    "vscode:prepublish": "pnpm run bundle",
+    "bundle": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node --minify",
+    "package": "pnpm vsce package --no-dependencies",
+    "publish": "pnpm vsce publish --no-dependencies",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "pnpm run compile && pnpm run lint",
@@ -35,6 +40,7 @@
     "@typescript-eslint/parser": "^8.42.0",
     "@vscode/test-cli": "^0.0.11",
     "@vscode/test-electron": "^2.5.2",
+    "esbuild": "^0.25.12",
     "eslint": "^9.34.0",
     "typescript": "^5.9.2"
   },
@@ -44,5 +50,6 @@
   },
   "dependencies": {
     "@vscode/codicons": "^0.0.41"
-  }
+  },
+  "packageManager": "pnpm@10.20.0"
 }
